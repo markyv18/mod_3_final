@@ -9,6 +9,8 @@ gem "jquery-rails"
 gem "turbolinks"
 gem "jbuilder", "~> 2.0"
 gem 'figaro'
+gem 'webmock'
+gem 'active_model_serializers'
 gem 'vcr'
 gem "therubyracer"
 gem "less-rails-bootstrap"
