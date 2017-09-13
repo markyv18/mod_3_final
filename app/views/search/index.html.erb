@@ -1,9 +1,10 @@
 <div class="whoisyourdaddyandwhatdoeshedo">
   <% @stores.each do |store| %>
-    <%= store.long_name %>
+    <h1><%= store.long_name %></h1>
     <%= store.city %>
     <%= store.distance %>
     <%= store.phone_number %>
     <%= store.store_type %>
+    <br><br>
   <% end %>
 </div>
