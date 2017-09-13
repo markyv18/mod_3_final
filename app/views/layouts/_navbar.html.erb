@@ -25,7 +25,7 @@
     <ul class="nav navbar-nav">
       <%= form_for :search, url: search_index_path, method: :get, class: "navbar-form navbar-left" do |f| %>
         <%= text_field_tag :zip, "Search by zip...", class: "form-control" %>
-        <%= submit_tag "Find Nearest Best Buy Stores", class: "btn btn-primary" %>
+        <%= submit_tag "Find Best Buy Stores within 25 miles", class: "btn btn-primary" %>
       <% end %>
     </ul>
   </div>

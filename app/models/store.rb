@@ -4,6 +4,7 @@ class Store
               :distance,
               :phone_number,
               :store_type,
+              :total,
               :total_stores
 
   def initialize(store)
@@ -14,10 +15,13 @@ class Store
     @store_type = store[:storeType]
   end
 
+  def self.total_stores
+    @stores_api[:total]
+  end
+
   def self.find_store(zip)
-    stores_api = StoreFinder.store_call(zip)
-    @total_stores =stores_api[:total]
-    stores_api.each do |store|
+    @stores_api = StoreFinder.store_call(zip)
+    @stores_api[:stores].each do |store|
       Store.new(store)
     end
   end
