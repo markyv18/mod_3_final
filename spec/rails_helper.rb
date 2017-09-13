@@ -6,7 +6,7 @@ require File.expand_path('../../config/environment', __FILE__)
 abort("The Rails environment is running in production mode!") if Rails.env.production?
 require 'rspec/rails'
 require 'capybara/rails'
-require 'vcr'
+# require 'vcr'
 # Add additional requires below this line. Rails is not loaded until this point!
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -22,10 +22,10 @@ require 'vcr'
 # directory. Alternatively, in the individual `*_spec.rb` files, manually
 # require only the support files necessary.
 #
-VCR.configure do |c|
-  c.cassette_library_dir = 'spec/vcr'
-  c.hook_into :webmock
-end
+# VCR.configure do |c|
+#   c.cassette_library_dir = 'spec/vcr'
+#   c.hook_into :webmock
+# end
 
 Dir[Rails.root.join('spec/support/**/*.rb')].each { |f| require f }
 
