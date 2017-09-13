@@ -1,22 +1,10 @@
+require 'rails_helper'
 
 
 
-
-
-
-```Consume 3rd party API
-
-For this challenge you'll implement a lookup feature for storedom. We want to be able to search and return Best Buy locations in our area.
-
-We need to consume data from the BestBuy Api. Start by checking out the [BestBuy developer documentation](https://developer.bestbuy.com/). You should have received a Best Buy API key from an instructor.
-
-Once you're done getting your key, use the [Stores documentation](http://bestbuyapis.github.io/api-documentation/#stores-api) to meet the requirements below.
-
-* It's not necessary, or even advised, that you store anything in a database from the Best Buy API.
 * Display the returned stores and their attributes returned from the API query in a logical and intuitive HTML layout. (This does not need to be styled).
 
-```
-```As a user
+As a user
 When I visit "/"
 And I fill in a search box with "80202" and click "search"
 Then my current path should be "/search" (ignoring params)
