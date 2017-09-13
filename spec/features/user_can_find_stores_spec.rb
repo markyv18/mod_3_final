@@ -1,9 +1,6 @@
 require 'rails_helper'
 
 
-
-* Display the returned stores and their attributes returned from the API query in a logical and intuitive HTML layout. (This does not need to be styled).
-
 As a user
 When I visit "/"
 And I fill in a search box with "80202" and click "search"

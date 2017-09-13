@@ -1,3 +1,9 @@
-<% @stores.each do |store| %>
-  <%= store %>
-<% end %>
+<div class="whoisyourdaddyandwhatdoeshedo">
+  <% @stores.each do |store| %>
+    <%= store.long_name %>
+    <%= store.city %>
+    <%= store.distance %>
+    <%= store.phone_number %>
+    <%= store.store_type %>
+  <% end %>
+</div>
