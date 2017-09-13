@@ -2,20 +2,19 @@ require 'rails_helper'
 
 describe 'Items API endpoints' do
   it 'can return all items' do
-    create_list(:item, 5)
+    a = create_list(:item, 5)
 
     get '/api/v1/items'
 
     expect(response).to be_success
-byebug
-    response = JSON.parse(response.body)
 
-    expect(response.count).to eq(5)
+    response1 = JSON.parse(response.body)
 
-    expect(response.first["id"]).to eq(items.first.id)
-    expect(response.first["name"]).to eq(items.first.name)
-    expect(response.first["description"]).to eq(items.first.description)
-    expect(response.first["image_url"]).to eq(items.first.image_url)
+    expect(response1.count).to eq(5)
+
+    expect(response1.first["name"]).to eq(a.first.name)
+    expect(response1.first["description"]).to eq(a.first.description)
+    expect(response1.first["image_url"]).to eq(a.first.image_url)
   end
 
   it 'can return one item' do
@@ -25,21 +24,38 @@ byebug
 
     expect(response).to be_success
 
-    response = JSON.parse(response.body)
+    response1 = JSON.parse(response.body)
 
-    expect(response["id"]).to eq(item.id)
-    expect(response["name"]).to eq(item.name)
-    expect(response["description"]).to eq(item.description)
-    expect(response["image_url"]).to eq(item.image_url)
+    expect(response1["id"]).to eq(item.id)
+    expect(response1["name"]).to eq(item.name)
+    expect(response1["description"]).to eq(item.description)
+    expect(response1["image_url"]).to eq(item.image_url)
   end
 
 
   it 'can DESTROY an item' do
-    
+    item = create(:item)
+    id = item.id
+
+    delete "/api/v1/items/#{id}"
+
+    expect(response).to be_success
+    expect{ Item.find(id) }.to raise_error(ActiveRecord::RecordNotFound)
+  end
+
+  it 'can create an item' do
+  item_params = attributes_for(:item)
+
+  expect{ post "/api/v1/items/", item: item_params }.to change(Item, :count).by(1)
+
+  expect(response).to be_success
+  expect(response.status).to eq(200)
+  expect(item_params[:name]).to eq(Item.last.name)
+  expect(item_params[:description]).to eq(Item.last.description)
+  expect(item_params[:image_url]).to eq(Item.last.image_url)
   end
 
 end
-
 
 
 # When I send a DELETE request to `/api/v1/items/1`

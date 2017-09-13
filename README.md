@@ -23,10 +23,13 @@ bundle exec rake db:{create,setup}
 Feature Completion
 
 [ ] All features are functional
+all but update
 Process
 
 [ ] Git history shows student uses TDD and follows red/green/refactor
+yup
 [ ] App is well tested
+okay
 Ruby/Rails Style
 
 [ ] Objects used in views
