@@ -1,9 +1,28 @@
 class Api::V1::ItemsController < ApplicationController
+
   def index
-    @items = Item.all
+    render json: Item.all
   end
 
   def show
-    @item = Item.find(params[:id].to_i)
+    render json: Item.find(params[:id])
+  end
+
+  def update
+    render json: Item.update(params[:id], item_params)
+  end
+
+  def show
+    render json: Item.find(params[:id])
+  end
+
+  def destroy
+    render json: Item.find(params[:id]).destroy
+  end
+
+  private
+
+  def item_params
+    params.require(:item).permit(:id, :name, :description, :image_url)
   end
 end
