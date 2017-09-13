@@ -21,7 +21,7 @@ class Store
 
   def self.find_store(zip)
     @stores_api = StoreFinder.store_call(zip)
-    @stores_api[:stores].each do |store|
+    @stores_api[:stores].map do |store|
       Store.new(store)
     end
   end
