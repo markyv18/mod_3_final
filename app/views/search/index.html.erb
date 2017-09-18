@@ -1,10 +1,10 @@
-<h1><%= @total_stores %> Total Stores</h1>
+<h1><%= @presenter.total_stores %> Total Stores</h1>
 
 <br>
 <div class="whoisyourdaddyandwhatdoeshedo">
   <ul>
 
-  <% @stores.each do |store| %>
+  <% @presenter.stores.each do |store| %>
     <li><h2><%= store.long_name %></h2></li>
     <li><%= store.city %></li>
     <li><%= store.distance %></li>
